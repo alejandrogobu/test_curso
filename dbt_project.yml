@@ -57,7 +57,7 @@ models:
         {%- elif target.name == 'pro'-%} pro_gold_db_alumnoadmin 
         {%- else -%} {{target.database}}_gold_db_alumno_admin
         {%- endif -%}
-      marts:
+      core:
         +schema: core
         
 snapshots:
