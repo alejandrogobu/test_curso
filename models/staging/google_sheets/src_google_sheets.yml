@@ -7,10 +7,10 @@ sources:
       Raw data demo from Budget.
     schema: google_sheets # This is the schema our raw data lives in snowflake.
     database: |  
-        {%- if  target.name == 'dev' -%} dev_silver_db 
-        {%- elif target.name == 'ci' -%} dev_silver_db  
-        {%- elif target.name == 'pro' -%} pro_silver_db 
-        {%- else -%} {{target.database}}_silver_db  
+        {%- if  target.name == 'user_dev' -%} dev_bronze_db_alumnoadmin 
+        {%- elif target.name == 'ci' -%} dev_bronze_db_alumnoadmin 
+        {%- elif target.name == 'pro'-%} pro_bronze_db_alumnoadmin  
+        {%- else -%} {{target.database}}_bronze_db_alumnoadmin
         {%- endif -%}
 
     quoting:
@@ -45,7 +45,6 @@ sources:
               Number of units for each product and each month for products.
             tests:
               - not_null
-              - positive_values
           - name: month
             description: >
               Each month for the budget > End of the month.
